@@ -18,7 +18,18 @@ table {
     width: 100%;
 }
 
-th {
+th:nth-child(1) {
+    width: 50%;
+    height: 30px;
+}
+
+th:nth-child(2){
+    width: 25%;
+    height: 30px;
+}
+
+th:nth-child(3){
+    width: 25%;
     height: 30px;
 }
 
@@ -33,4 +44,11 @@ td {
 
 #content {
     width: 70%;
+}
+
+.sorted-col{
+    background-color: #e0e0e0;
+    font-weight: bold;
+    color: #333
+    text-align center;
 }

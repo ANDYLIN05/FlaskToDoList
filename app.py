@@ -25,7 +25,7 @@ def index():
         except:
             return 'Error Adding your task'
     else: 
-        tasks = Todo.query.order_by(Todo.date_created).all()
+        tasks = Todo.query.order_by(Todo.date_created.desc()).all()
         return render_template('index.html', taskList=tasks)
     
 @app.route('/delete/<int:id>')
@@ -43,6 +43,7 @@ def update(id):
     taskToUpdate = Todo.query.get_or_404(id)
     if request.method == 'POST':
         taskToUpdate.content = request.form['input']
+        taskToUpdate.date_created = datetime.utcnow()
         try:
             db.session.commit()
             return redirect('/')
